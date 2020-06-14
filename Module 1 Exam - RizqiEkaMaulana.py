@@ -7,7 +7,7 @@ input3 = ""
 input4 = "  Welcome   to   the First  Purwhadika    Exam"
 input5 = "        Purwadhika      Digital      School"
 #input untuk testing kondisi lebih dari 140 karakter
-input6 = "    I       want       to     test     more    than    140      chars                                                                        !!!!"
+input6 = "    I       want       to     test     more    than    140      chars!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!            "
 
 #Function Construction
 
@@ -15,9 +15,6 @@ def Hashtag(string):
 
     #Pengecekan Kondisi Input & Split String based on " "
     if string == "" :
-        return False
-    #Pengecekan Kondisi Input & Split String lebih dari 140 karakter atau tidak
-    elif len(string) > 140 :
         return False
     #Split string ke dalam list
     else:
@@ -28,9 +25,13 @@ def Hashtag(string):
     for a in range(len(lst)):
         hash += str(lst[a]).capitalize()
     
+    #Pengecekan Kondisi Output lebih dari 140 chars atau tidak
+    if len(hash) > 140:
+        return False
+    
     return hash
 
-Hashtag(input4)
+Hashtag(input6)
 
 
 #EXAM 2
