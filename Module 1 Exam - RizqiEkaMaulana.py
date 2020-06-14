@@ -6,6 +6,7 @@ input2 = "   Hello    World    "
 input3 = ""
 input4 = "  Welcome   to   the First  Purwhadika    Exam"
 input5 = "        Purwadhika      Digital      School"
+#input untuk testing kondisi lebih dari 140 karakter
 input6 = "    I       want       to     test     more    than    140      chars                                                                        !!!!"
 
 #Function Construction
@@ -15,19 +16,21 @@ def Hashtag(string):
     #Pengecekan Kondisi Input & Split String based on " "
     if string == "" :
         return False
+    #Pengecekan Kondisi Input & Split String lebih dari 140 karakter atau tidak
     elif len(string) > 140 :
         return False
+    #Split string ke dalam list
     else:
         lst = string.split(" ")
 
-    #Penggabungan ke dalam string
+    #Penggabungan ke dalam string diawali "#"
     hash = "#"
     for a in range(len(lst)):
         hash += str(lst[a]).capitalize()
     
     return hash
 
-Hashtag(input1)
+Hashtag(input4)
 
 
 #EXAM 2
@@ -35,18 +38,23 @@ Hashtag(input1)
 
 input1 = [1,2,3,4,5,6,7,8,9,0]
 input2 = [3,4,5,1,2,3,0,9,5,6]
-input3 = [-1,4,5,1.6,2.6,3.5,0,5.5,11,6] #input untuk testing kondisi integer
+input3 = [0,4,5,1.6,2.6,3.5,0,5.5,11,6] #input untuk testing kondisi integer
 input4 = [-1,4,5,1,2,3,11,9,5,6] #input untuk testing range 0-9
 
 #Function Construction
 
 def create_phone_number(number):
 
-    #Untuk Pengecekan Kondisi Input
+    #Untuk Pengecekan Kondisi Input - Integer atau tidak
+    for a in number:
+        if type(a) != int:
+            return "Please re-enter your number, no decimal number"
+    #Untuk Pengecekan Kondisi Input - 10 Digit atau tidak
     if len(number) != 10:
-        return "Please re-enter your number"
+        return "Please re-enter your number, 10 digits only"
+    #Untuk Pengecekan Kondisi Input - antara 0 hingga 9 atau tidak 
     if max(number) > 9 and min(number) < 0:
-        return "Please re-enter your number"
+        return "Please re-enter your number, only from 0-9"
     else:
     #Untuk Breakdown Input dan Reformat kedalam Format Phone Number
         a,b,c = number[0:3]
@@ -55,7 +63,7 @@ def create_phone_number(number):
     return ("({}{}{}) {}{}{}-{}{}{}{}".format(a,b,c,d,e,f,g,h,i,j))
 
 
-create_phone_number(input1)
+create_phone_number(input4)
 
 
 #EXAM 3
@@ -104,7 +112,8 @@ def sort_odd_even(num):
         for j in range(i+1, len(combined_list)):
             if combined_list[i] > combined_list[j]:
                 combined_list[i], combined_list[j] = combined_list[j], combined_list[i]
-
+    
+    #Untuk Meng-unzip List dari List of Tuples
     return [j for i,j in combined_list]
 
 
